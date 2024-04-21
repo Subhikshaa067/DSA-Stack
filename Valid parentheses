@@ -1,0 +1,19 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        stack= []
+        Map= {")":"(","]":"[","}":"{"}
+
+        for i in s:
+            if i in Map:
+                if stack[-1] == Map[i]:#If stack is empty, the condition if stack evaluates to False, and the second part of the condition (stack[-1] == Map[i]) is not evaluated. This prevents an IndexError in the case of an empty stack.
+                    stack.pop()
+                else:
+                    return False
+            else:
+                stack.append(i)
+        return True
+
+
+                
+                
+        
